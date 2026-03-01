@@ -23,3 +23,20 @@ DATABASE_URL=sqlite+aiosqlite:///./recite.db
 cd backend
 uvicorn app.main:app --reload
 ```
+
+## API
+
+- `POST /api/auth/register` — create account, returns JWT
+- `POST /api/auth/login` — login, returns JWT
+- `GET /api/auth/me` — current user (requires `Authorization: Bearer <token>`)
+- `GET /api/bible/books` — list all books
+- `GET /api/bible/books/{book}` — book info
+- `GET /api/bible/verse/{book}/{chapter}/{verse}` — single verse
+- `GET /api/bible/verses/{book}?start_index=0&end_index=5` — verse range
+
+## Tests
+
+```bash
+cd backend
+pytest
+```
